@@ -13,6 +13,7 @@ const CLI = require('clui');
 const ref = require("./lib/ref");
 const nuget = require("./lib/nuget");
 const dotnet = require("./lib/dotnet");
+const git = require("./lib/git");
 
 program
   .version('0.0.1')
@@ -48,6 +49,46 @@ program
     clear();  
     let handler = new dotnet();
     handler.createType(name);
+  });
+
+program
+  .command('git-commit')
+  .alias('commit')
+  .description('Git commit command')
+  .action((name) => {
+    clear();  
+    let handler = new git();
+    handler.doCommite();
+  });
+
+program
+  .command('git-push')
+  .alias('push')
+  .description('Git push command')
+  .action((name) => {
+    clear();  
+    let handler = new git();
+    handler.doPush();
+  });
+
+program
+  .command('git-pull')
+  .alias('commit')
+  .description('Git pull command')
+  .action((name) => {
+    clear();  
+    let handler = new git();
+    handler.doPull();
+  });
+
+program
+  .command('git-sync')
+  .alias('sync')
+  .description('Git sync command')
+  .action((name) => {
+    clear();  
+    let handler = new git();
+    handler.doSync();
   });
 
 if (!process.argv.slice(2).length) {
