@@ -73,7 +73,7 @@ program
 
 program
   .command('git-pull')
-  .alias('commit')
+  .alias('pull')
   .description('Git pull command')
   .action((name) => {
     clear();  
